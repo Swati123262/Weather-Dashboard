@@ -1,128 +1,115 @@
-document.addEventListener("DOMContentLoaded", () => {
+const searchBtn = document.getElementById("searchBtn");
 
-const apiKey =
-"86a3a6665567472694b71519261805";
+const cityInput = document.getElementById("city");
 
-const searchBtn =
-document.getElementById("searchBtn");
+const cityName = document.getElementById("cityName");
 
-const toggleBtn =
-document.getElementById("toggleBtn");
+const temperature = document.getElementById("temperature");
 
-/* WEATHER */
+const feelsLike = document.getElementById("feelsLike");
 
-searchBtn.addEventListener(
-    "click",
-    getWeather
-);
+const description = document.getElementById("description");
 
-async function getWeather(){
+const humidity = document.getElementById("humidity");
 
-    const city =
-    document
-    .getElementById("city")
-    .value
-    .trim();
+const wind = document.getElementById("wind");
 
-    if(city === ""){
+const weatherIcon = document.getElementById("weatherIcon");
 
-        alert("Please enter city");
+const weatherCard = document.getElementById("weatherCard");
 
-        return;
+const toggleBtn = document.getElementById("toggleBtn");
+
+
+// TOGGLE BUTTON
+toggleBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("light");
+
+    if (document.body.classList.contains("light")) {
+
+        toggleBtn.innerHTML = "☀️";
+
     }
 
+    else {
+
+        toggleBtn.innerHTML = "🌙";
+
+    }
+
+});
+
+
+// SEARCH WEATHER
+searchBtn.addEventListener("click", async () => {
+
+    const city = cityInput.value.trim();
+
+    if (city === "") {
+
+        alert("Enter city name");
+
+        return;
+
+    }
+
+    // YOUR API KEY
+    const apiKey = "86a3a6665567472694b71519261805";
+
+    // API URL
     const url =
-    `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
 
-    try{
+    try {
 
-        const response =
-        await fetch(url);
+        const response = await fetch(url);
 
-        const data =
-        await response.json();
+        const data = await response.json();
 
         console.log(data);
 
-        if(data.error){
+        // ERROR CHECK
+        if (data.error) {
 
             alert(data.error.message);
 
             return;
+
         }
 
-        document
-        .getElementById("weatherCard")
-        .style.display = "block";
+        // SHOW CARD
+        weatherCard.style.display = "block";
 
-        document
-        .getElementById("weatherIcon")
-        .src =
-        data.current.condition.icon;
+        // SET DATA
+        cityName.innerHTML = data.location.name;
 
-        document
-        .getElementById("cityName")
-        .innerText =
-        data.location.name;
+        temperature.innerHTML =
+            `${data.current.temp_c} °C`;
 
-        document
-        .getElementById("temperature")
-        .innerText =
-        `Current Temp: ${data.current.temp_c} °C`;
+        feelsLike.innerHTML =
+            `${data.current.feelslike_c} °C`;
 
-        document
-        .getElementById("feelsLike")
-        .innerText =
-        `Feels Like: ${data.current.feelslike_c} °C`;
+        description.innerHTML =
+            data.current.condition.text;
 
-        document
-        .getElementById("description")
-        .innerText =
-        `Condition: ${data.current.condition.text}`;
+        humidity.innerHTML =
+            `${data.current.humidity}%`;
 
-        document
-        .getElementById("humidity")
-        .innerText =
-        `Humidity: ${data.current.humidity}%`;
+        wind.innerHTML =
+            `${data.current.wind_kph} km/h`;
 
-        document
-        .getElementById("wind")
-        .innerText =
-        `Wind Speed: ${data.current.wind_kph} km/h`;
+        weatherIcon.src =
+            "https:" + data.current.condition.icon;
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.log(error);
 
         alert("Something went wrong");
+
     }
-}
-
-/* TOGGLE BUTTON */
-
-toggleBtn.addEventListener(
-    "click",
-    () => {
-
-    document.body.classList.toggle(
-        "light-mode"
-    );
-
-    if(
-        document.body.classList.contains(
-            "light-mode"
-        )
-    ){
-
-        toggleBtn.innerText = "☀️";
-    }
-
-    else{
-
-        toggleBtn.innerText = "🌙";
-    }
-});
 
 });

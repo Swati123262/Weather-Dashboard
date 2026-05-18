@@ -2,48 +2,39 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8" />
 
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Modern Weather Dashboard</title>
 
-    <title>Weather Dashboard</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
 
-    <!-- CSS File -->
-    <link rel="stylesheet" href="style.css">
-
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
 
-    <!-- Main Container -->
+    <!-- MAIN CONTAINER -->
     <div class="container">
 
-        <!-- Toggle Button -->
+        <!-- TOGGLE BUTTON -->
         <div class="toggle-container">
-
-            <button id="toggleBtn">
-                🌙
-            </button>
-
+            <button id="toggleBtn">🌙</button>
         </div>
 
-        <!-- Heading -->
-        <h1>
-            Weather Dashboard
-        </h1>
+        <!-- TITLE -->
+        <h1>Weather Dashboard</h1>
 
-        <!-- Search Box -->
+        <!-- SEARCH -->
         <div class="search-box">
 
-            <input
-                type="text"
+            <input type="text"
                 id="city"
-                placeholder="Enter city name"
-            >
+                placeholder="Enter city name..." />
 
             <button id="searchBtn">
                 Search
@@ -51,64 +42,71 @@
 
         </div>
 
-        <!-- Weather Card -->
-        <div
-            class="weather-card"
-            id="weatherCard"
-        >
+        <!-- WEATHER CARD -->
+        <div class="weather-card"
+            id="weatherCard">
 
-            <!-- Weather Icon -->
-            <img id="weatherIcon">
+            <!-- ICON -->
+            <div class="icon-box">
+                <img id="weatherIcon"
+                    src=""
+                    alt="weather icon" />
+            </div>
 
-            <!-- City Name -->
+            <!-- CITY -->
             <h2 id="cityName"></h2>
 
-            <!-- Weather Detail Boxes -->
+            <!-- WEATHER DETAILS -->
             <div class="weather-details">
 
-                <!-- Temperature -->
+                <!-- TEMP -->
                 <div class="detail-box">
-
-                    <h3>Temperature</h3>
+                    <div class="detail-top">
+                        <span class="emoji">🌡️</span>
+                        <h3>Temperature</h3>
+                    </div>
 
                     <p id="temperature"></p>
-
                 </div>
 
-                <!-- Feels Like -->
+                <!-- FEELS LIKE -->
                 <div class="detail-box">
-
-                    <h3>Feels Like</h3>
+                    <div class="detail-top">
+                        <span class="emoji">🥵</span>
+                        <h3>Feels Like</h3>
+                    </div>
 
                     <p id="feelsLike"></p>
-
                 </div>
 
-                <!-- Condition -->
+                <!-- CONDITION -->
                 <div class="detail-box">
-
-                    <h3>Condition</h3>
+                    <div class="detail-top">
+                        <span class="emoji">☁️</span>
+                        <h3>Condition</h3>
+                    </div>
 
                     <p id="description"></p>
-
                 </div>
 
-                <!-- Humidity -->
+                <!-- HUMIDITY -->
                 <div class="detail-box">
-
-                    <h3>Humidity</h3>
+                    <div class="detail-top">
+                        <span class="emoji">💧</span>
+                        <h3>Humidity</h3>
+                    </div>
 
                     <p id="humidity"></p>
-
                 </div>
 
-                <!-- Wind -->
+                <!-- WIND -->
                 <div class="detail-box">
-
-                    <h3>Wind</h3>
+                    <div class="detail-top">
+                        <span class="emoji">🌬️</span>
+                        <h3>Wind Speed</h3>
+                    </div>
 
                     <p id="wind"></p>
-
                 </div>
 
             </div>
@@ -117,7 +115,7 @@
 
     </div>
 
-    <!-- JS File -->
+    <!-- JS -->
     <script src="script.js"></script>
 
 </body>
