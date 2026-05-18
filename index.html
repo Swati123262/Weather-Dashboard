@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Weather Dashboard</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Toggle Button -->
+        <div class="toggle-container">
+
+            <button id="toggleBtn">
+                🌙
+            </button>
+
+        </div>
+
+        <!-- Heading -->
+        <h1>
+            Weather Dashboard
+        </h1>
+
+        <!-- Search Box -->
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="city"
+                placeholder="Enter city name"
+            >
+
+            <button id="searchBtn">
+                Search
+            </button>
+
+        </div>
+
+        <!-- Weather Card -->
+        <div
+            class="weather-card"
+            id="weatherCard"
+        >
+
+            <!-- Weather Icon -->
+            <img id="weatherIcon">
+
+            <!-- City Name -->
+            <h2 id="cityName"></h2>
+
+            <!-- Weather Detail Boxes -->
+            <div class="weather-details">
+
+                <!-- Temperature -->
+                <div class="detail-box">
+
+                    <h3>Temperature</h3>
+
+                    <p id="temperature"></p>
+
+                </div>
+
+                <!-- Feels Like -->
+                <div class="detail-box">
+
+                    <h3>Feels Like</h3>
+
+                    <p id="feelsLike"></p>
+
+                </div>
+
+                <!-- Condition -->
+                <div class="detail-box">
+
+                    <h3>Condition</h3>
+
+                    <p id="description"></p>
+
+                </div>
+
+                <!-- Humidity -->
+                <div class="detail-box">
+
+                    <h3>Humidity</h3>
+
+                    <p id="humidity"></p>
+
+                </div>
+
+                <!-- Wind -->
+                <div class="detail-box">
+
+                    <h3>Wind</h3>
+
+                    <p id="wind"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JS File -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
