@@ -458,25 +458,25 @@ body.light #toggleBtn{
     }
 
     /* SEARCH FIX */
-    .search-box{
-        flex-direction:column;
-        width:100%;
-        gap:14px;
-    }
-
-    .search-box input{
-        width:100%;
-        font-size:18px;
-        padding:18px;
-        border-radius:20px;
-    }
-
     .search-box button{
-        width:100%;
-        padding:18px;
-        border-radius:20px;
-        font-size:18px;
-    }
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:20px;
+
+    background:linear-gradient(135deg,#3b82f6,#2563eb);
+
+    color:white;
+
+    font-size:18px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
 
     /* ICON */
     .weather-card img{
